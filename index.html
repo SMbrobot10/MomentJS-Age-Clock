@@ -17,11 +17,24 @@
     // invoke displayAge on an interval once a second
     setInterval(displayAge, 1000)
     function displayAge(){
-      /* 
-      Use moment() to create a new moment object from the present time
+      var currently = new Date;
+      var year = window.birthday.slice(-4);
+      var month = window.birthday.slice(0,2);
+      var day = window.birthday.slice(3,5);
+      var born = year + '-' + month + '-' + day + " 00:00:00";
+      var now = moment().format();
+      born = moment(born).format();
+
+      var result = moment.preciseDiff(moment(born, 'YYYY-MM-DD HH:mm:ss'),
+                                moment(now, 'YYYY-MM-DD HH:mm:ss'));
+
+
+
+
+      /*Use moment() to create a new moment object from the present time
       Fix this function to display someone's exact age
       */
-      document.querySelector('.countdown').innerHTML = moment()
+      document.querySelector('.countdown').innerHTML = moment(result)
     }
   </script>
 </body>
